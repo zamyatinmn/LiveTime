@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">LiveTime</string>
+    <string name="enter_your_birthdate">Enter your birthdate</string>
+    <string name="ok_btn">ok</string>
 </resources>
