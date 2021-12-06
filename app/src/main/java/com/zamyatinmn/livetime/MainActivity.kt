@@ -1,17 +1,20 @@
 package com.zamyatinmn.livetime
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.github.terrakok.cicerone.NavigatorHolder
+import com.github.terrakok.cicerone.Router
 import com.github.terrakok.cicerone.androidx.AppNavigator
 import com.zamyatinmn.livetime.databinding.ActivityMainBinding
+import org.koin.android.ext.android.inject
 
 class MainActivity: AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private val navigatorHolder = App.instance.navigationHolder
+    private val navigatorHolder: NavigatorHolder by inject()
     private val navigator = AppNavigator(this, R.id.container)
-    private val router = App.instance.router
-    private val screens = AppScreens()
+    private val router: Router by inject()
+    private val screens: AppScreens by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
