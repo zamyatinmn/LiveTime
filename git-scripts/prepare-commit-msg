@@ -1,0 +1,15 @@
+#!/bin/sh
+
+COMMIT_MSG_FILE=$1
+
+#This script append task number from branch name to commit message
+#If commit message already contains task number, script do nothing
+
+BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD | grep -oE "^[0-9]+")
+if [ -n "$BRANCH_NAME" ]; then
+  BRANCH_NAME="#$BRANCH_NAME "
+  test -n "$(grep "$BRANCH_NAME" "${COMMIT_MSG_FILE}")" || {
+        echo "$BRANCH_NAME $(cat "$COMMIT_MSG_FILE")" > "$COMMIT_MSG_FILE"
+        exit 0
+  }
+fi

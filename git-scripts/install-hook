@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cp prepare-commit-msg ../.git/hooks/prepare-commit-msg
+chmod +x ../.git/hooks/prepare-commit-msg
+echo "The prepare-commit-msg hook was added to git hooks"
